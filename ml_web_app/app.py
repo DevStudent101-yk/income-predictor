@@ -26,7 +26,7 @@ native_country = st.text_input("Native Country", "United-States")
 income = st.text_input("Income", "<=50K")
 
 if st.button("Predict"):
-    url = env["API_URL"]   
+    url = env.API_URL  
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {env['API_TOKEN']}"
@@ -69,3 +69,4 @@ if st.button("Predict"):
             st.error(f"❌ Error: {response.status_code} - {response.text}")
     except Exception as e:
         st.error(f"Exception occurred: {e}")
+
