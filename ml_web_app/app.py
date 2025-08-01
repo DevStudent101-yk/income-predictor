@@ -1,5 +1,5 @@
 import streamlit as st
-import env
+
 import requests
 
 st.set_page_config(page_title="Income Prediction App", page_icon="🤖")
@@ -69,4 +69,5 @@ if st.button("Predict"):
             st.error(f"❌ Error: {response.status_code} - {response.text}")
     except Exception as e:
         st.error(f"Exception occurred: {e}")
+
 
