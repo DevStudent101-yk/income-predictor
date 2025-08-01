@@ -1,11 +1,9 @@
 import streamlit as st
-
 import requests
 
 st.set_page_config(page_title="Income Prediction App", page_icon="🤖")
 
 st.title("🧠 Income Prediction App")
-
 st.write("Enter the details below and click Predict to see the model output.")
 
 # Input fields
@@ -26,14 +24,15 @@ native_country = st.text_input("Native Country", "United-States")
 income = st.text_input("Income", "<=50K")
 
 if st.button("Predict"):
-    import streamlit as st
-url = st.secrets["API_URL"]
-  
-headers = {
+    # Get secrets (make sure you've added them in Streamlit secrets)
+    url = st.secrets["API_URL"]
+    api_token = st.secrets["API_TOKEN"]  # Add this to secrets too
+
+    headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {env['API_TOKEN']}"
+        "Authorization": f"Bearer {api_token}"
     }
-    
+
     data = {
         "Inputs": {
             "WebServiceInput0": [
@@ -71,8 +70,3 @@ headers = {
             st.error(f"❌ Error: {response.status_code} - {response.text}")
     except Exception as e:
         st.error(f"Exception occurred: {e}")
-
-
-
-
-
