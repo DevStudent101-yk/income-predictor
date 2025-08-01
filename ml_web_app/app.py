@@ -29,7 +29,7 @@ if st.button("Predict"):
     import streamlit as st
 url = st.secrets["API_URL"]
   
-    headers = {
+headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {env['API_TOKEN']}"
     }
@@ -71,6 +71,7 @@ url = st.secrets["API_URL"]
             st.error(f"❌ Error: {response.status_code} - {response.text}")
     except Exception as e:
         st.error(f"Exception occurred: {e}")
+
 
 
 
